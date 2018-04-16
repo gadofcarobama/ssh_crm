@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx"
+               xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+    <!-- 配置c3p0连接池 -->
+    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql:///ssh_crm"/>
+        <property name="user" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+   <!--配置sessionFatory-->
+   <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+       <property name="dataSource" ref="datasource"/>
+       <property name="configLocations" value="classpath:hibernate.cfg.xml"/>
+   </bean>
+    <!--配置事务管理-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--<bean id="userAction" class=""></bean>-->
+    <!--配置action并配置多实例-->
+    <bean id="userAction" class="action.UserAction" scope="prototype">
+        <!--注入service属性-->
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean id="userService" class="Service.UserService">
+        <property name="userDao" ref="userDaoImpl"></property>
+    </bean>
+    <bean id="userDaoImpl" class="dao.UserDaoImpl">
+        <!--注入hibernateTample模板-->
+        <!--简略方式直接注入SessionFactory-->
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <import resource="classpath:customer.xml"></import>
+</beans>
