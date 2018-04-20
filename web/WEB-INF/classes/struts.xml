@@ -24,9 +24,25 @@
             <result name="update" type="redirectAction">customer_list</result>
             <result name="listpage">/jsp/customer/listpage.jsp</result>
             <result name="listcondition">/jsp/customer/list.jsp</result>
+            <result name="toSelectCustomerPage">/jsp/select/select.jsp</result>
+            <result name="moreCondition">/jsp/customer/list.jsp</result>
         </action>
-
-
+<action name="linkman_*" class="linkManAction" method="{1}">
+    <result name="toLinkAdd">/jsp/linkman/add.jsp</result>
+    <result name="add">/jsp/success.jsp</result>
+    <result name="findAll">/jsp/linkman/list.jsp</result>
+    <result name="showLinkMan">/jsp/linkman/edit.jsp</result>
+    <!--重定向到action(redirectAction)中的时候不能加/如果重定向(redirect)需要加/-->
+    <result name="updateLinkMan" type="redirect">/linkman_findAll</result>
+    <!--配置返回input如果上传文件超过限制会返回input-->
+    <result name="input">/jsp/error.jsp</result>
+</action>
+<!--配置拜访的action-->
+        <action name="visit_*" class="visitAction" method="{1}">
+            <result name="toAdd">/jsp/visit/add.jsp</result>
+            <result name="addVisit">/jsp/success.jsp</result>
+            <result name="toList">/jsp/visit/list.jsp</result>
+        </action>
 </package>
 
 </struts>

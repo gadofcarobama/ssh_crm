@@ -69,4 +69,11 @@ public class CustomerService {
       List<Customer> list =  customerDao.listcondition(customerName);
       return list;
     }
+
+    public List<Customer> moreCondition(Customer customer) {
+        List<Customer> list = customerDao.moreCondition(customer);
+        return list;
+
+        }
+
 }

@@ -4,21 +4,23 @@ import entity.Customer;
 
 import java.util.List;
 
-public interface CustomerDao {
+public interface CustomerDao extends BaseDao<Customer> {
 
-    void add(Customer customer);
+//    void add(Customer customer);
 
-    List<Customer> findAll();
+//    List<Customer> findAll();
 
-    Customer findOne(int cid);
+//    Customer findOne(int cid);
 
-    void delete(Customer c);
+//    void delete(Customer c);
 
-    void update(Customer customer);
+//    void update(Customer customer);
 
     int findCount();
 
     List<Customer> findPage(int begin, int pageSize);
 
     List<Customer> listcondition(String customerName);
+
+    List<Customer> moreCondition(Customer customer);
 }

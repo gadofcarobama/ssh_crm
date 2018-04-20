@@ -6,6 +6,7 @@ import entity.User;
 import org.apache.struts2.ServletActionContext;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 public class UserAction extends ActionSupport {
     private UserService userService;
@@ -46,4 +47,5 @@ public class UserAction extends ActionSupport {
            return "login";
        }
     }
+
 }

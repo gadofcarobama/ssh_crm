@@ -1,10 +1,23 @@
 package entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
     private Integer uid;
     private String username;
     private String password;
     private String address;
+    //表示拜访信息
+    private Set<Visit> setVisit=new HashSet<Visit>();
+
+    public Set<Visit> getSetVisit() {
+        return setVisit;
+    }
+
+    public void setSetVisit(Set<Visit> setVisit) {
+        this.setVisit = setVisit;
+    }
 
     public String getAddress() {
         return address;

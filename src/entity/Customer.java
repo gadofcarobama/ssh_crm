@@ -1,6 +1,8 @@
 package entity;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Customer  {
     private Integer cid;
@@ -9,6 +11,25 @@ public class Customer  {
     private String custSource;
     private String custPhone;
     private String custMobile;
+    private Set<LinkMan> setLinkMan = new HashSet<LinkMan>();
+    //表示拜访信息集合
+    private Set<Visit> setVisit=new HashSet<Visit>();
+
+    public Set<Visit> getSetVisit() {
+        return setVisit;
+    }
+
+    public void setSetVisit(Set<Visit> setVisit) {
+        this.setVisit = setVisit;
+    }
+
+    public Set<LinkMan> getSetLinkMan() {
+        return setLinkMan;
+    }
+
+    public void setSetLinkMan(Set<LinkMan> setLinkMan) {
+        this.setLinkMan = setLinkMan;
+    }
 
     public Integer getCid() {
         return cid;

@@ -38,4 +38,6 @@
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
     <import resource="classpath:customer.xml"></import>
+    <import resource="classpath:linkMan.xml"></import>
+    <import resource="classpath:visit.xml"></import>
 </beans>

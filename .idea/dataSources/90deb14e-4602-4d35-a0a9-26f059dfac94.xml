@@ -21,60 +21,147 @@
     <schema id="15" parent="1" name="testdb3"/>
     <schema id="16" parent="1" name="world"/>
     <table id="17" parent="2" name="t_customer"/>
-    <table id="18" parent="2" name="t_user"/>
-    <column id="19" parent="17" name="cid">
+    <table id="18" parent="2" name="t_linkman"/>
+    <table id="19" parent="2" name="t_user"/>
+    <table id="20" parent="2" name="t_visit"/>
+    <column id="21" parent="17" name="cid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="20" parent="17" name="custName">
+    <column id="22" parent="17" name="custName">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="21" parent="17" name="custLevel">
+    <column id="23" parent="17" name="custLevel">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="22" parent="17" name="custPhone">
+    <column id="24" parent="17" name="custPhone">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="23" parent="17" name="custMobile">
+    <column id="25" parent="17" name="custMobile">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="24" parent="17" name="custSource">
+    <column id="26" parent="17" name="custSource">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="25" parent="17" name="PRIMARY">
+    <key id="27" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="26" parent="18" name="uid">
+    <column id="28" parent="18" name="linkid">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="27" parent="18" name="username">
+    <column id="29" parent="18" name="lkmName">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="28" parent="18" name="password">
+    <column id="30" parent="18" name="lkmGender">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="29" parent="18" name="address">
+    <column id="31" parent="18" name="lkmPhone">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="30" parent="18" name="PRIMARY">
+    <column id="32" parent="18" name="lkmMobile">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="33" parent="18" name="clid">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="34" parent="18" name="FKinxafh64kvgx8vfajibp3fvgy">
+      <ColNames>clid</ColNames>
+    </index>
+    <key id="35" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>linkid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="36" parent="18" name="FKinxafh64kvgx8vfajibp3fvgy">
+      <ColNames>clid</ColNames>
+      <RefSchemaName>ssh_crm</RefSchemaName>
+      <RefTableName>t_customer</RefTableName>
+      <RefColNames>cid</RefColNames>
+    </foreign-key>
+    <column id="37" parent="19" name="uid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="19" name="username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="39" parent="19" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="40" parent="19" name="address">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="41" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>
     </key>
+    <column id="42" parent="20" name="vid">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="20" name="vaddress">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="44" parent="20" name="vcontent">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="45" parent="20" name="cvid">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="46" parent="20" name="uvid">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="47" parent="20" name="FKf8b1vuxobp8eobr302uq8dn1k">
+      <ColNames>cvid</ColNames>
+    </index>
+    <index id="48" parent="20" name="FKnbsiiqbdcpvtugygwe4vj42s0">
+      <ColNames>uvid</ColNames>
+    </index>
+    <key id="49" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>vid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="50" parent="20" name="FKf8b1vuxobp8eobr302uq8dn1k">
+      <ColNames>cvid</ColNames>
+      <RefSchemaName>ssh_crm</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>uid</RefColNames>
+    </foreign-key>
+    <foreign-key id="51" parent="20" name="FKnbsiiqbdcpvtugygwe4vj42s0">
+      <ColNames>uvid</ColNames>
+      <RefSchemaName>ssh_crm</RefSchemaName>
+      <RefTableName>t_user</RefTableName>
+      <RefColNames>uid</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

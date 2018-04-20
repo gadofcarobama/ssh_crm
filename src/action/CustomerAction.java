@@ -85,6 +85,7 @@ public class CustomerAction extends ActionSupport implements ModelDriven {
        ServletActionContext.getRequest().setAttribute("pageBean",pageBean);
        return "listpage";
    }
+   //条件查询所有
    public String listcondition(){
        String customerName = customer.getCustName();
        if (customerName!=null&&!"".equals(customerName)){
@@ -95,4 +96,16 @@ public class CustomerAction extends ActionSupport implements ModelDriven {
        }
        return "listcondition";
    }
+   //跳转到多条件组合查询页面
+    public String toSelectCustomerPage(){
+       return "toSelectCustomerPage";
+
+    }
+  //多条件组合查询
+  public String moreCondition(){
+     List<Customer> list = customerService.moreCondition(customer);
+     ServletActionContext.getRequest().setAttribute("list",list);
+     return "moreCondition";
+  }
+
 }

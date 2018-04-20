@@ -10,5 +10,11 @@
         <property name="username" column="username"></property>
         <property name="password" column="password"></property>
         <property name="address" column="address"></property>
+        <!--配置所属的拜访信息-->
+        <set name="setVisit" inverse="true" cascade="delete">
+            <key column="uvid">
+            </key>
+            <one-to-many  class="entity.Visit"></one-to-many>
+        </set>
     </class>
 </hibernate-mapping>

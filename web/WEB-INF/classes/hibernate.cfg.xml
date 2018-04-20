@@ -13,6 +13,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <mapping resource="entity/User.hbm.xml"/>
         <mapping resource="entity/Customer.hbm.xml"/>
+        <mapping resource="entity/LinkMan.hbm.xml"/>
+        <mapping resource="entity/Visit.hbm.xml"/>
         <!--不需要配置本地线程绑定的session了，Spring中的hibernate模板底层已经帮封装好了本地线程相关的session了-->
     </session-factory>
 </hibernate-configuration>
