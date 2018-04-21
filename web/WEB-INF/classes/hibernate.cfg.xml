@@ -16,5 +16,6 @@
         <mapping resource="entity/LinkMan.hbm.xml"/>
         <mapping resource="entity/Visit.hbm.xml"/>
         <!--不需要配置本地线程绑定的session了，Spring中的hibernate模板底层已经帮封装好了本地线程相关的session了-->
+        <mapping resource="entity/Dict.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

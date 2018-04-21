@@ -10,6 +10,7 @@ import entity.LinkMan;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import javax.servlet.Servlet;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
@@ -92,5 +93,18 @@ public class LinkManAction extends ActionSupport implements ModelDriven{
         //对联系人进行修改操作
         linkManService.updateLinkMan(linkMan);
         return "updateLinkMan";
+    }
+    //跳转对联系人组合条件查询的页面
+    public String toSelectLinkManPage(){
+        //从数据库查询所有的客户并显示到页面上
+       List<Customer> list = customerService.findAll();
+       ServletActionContext.getRequest().setAttribute("list",list);
+       return "toSelectLinkMan";
+    }
+    //对联系人进行多条件组合查询
+    public String moreCondition(){
+        List<LinkMan> list = linkManService.moreCondition(linkMan);
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "moreCondition";
     }
 }

@@ -61,5 +61,19 @@ public class VisitAction extends ActionSupport implements ModelDriven {
         ServletActionContext.getRequest().setAttribute("list",list);
         return "toList";
     }
-
+    //到组合查询的页面上
+    public String toSelectVisitPage(){
+        //将所有用户和客户从数据库中查询出来
+       List<User> listUser = userService.findAll();
+       List<Customer> listCustomer = customerService.findAll();
+       HttpServletRequest request = ServletActionContext.getRequest();
+       request.setAttribute("listUser",listUser);
+       request.setAttribute("listCustomer",listCustomer);
+       return "toSelectVisitPage";
+    }
+    public String moreCondition(){
+      List<Visit> list = visitService.moreCondition(visit);
+      ServletActionContext.getRequest().setAttribute("list",list);
+      return "moreCondition";
+    }
 }

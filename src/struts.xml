@@ -26,6 +26,8 @@
             <result name="listcondition">/jsp/customer/list.jsp</result>
             <result name="toSelectCustomerPage">/jsp/select/select.jsp</result>
             <result name="moreCondition">/jsp/customer/list.jsp</result>
+            <result name="countLevel">/jsp/customer/listLevel.jsp</result>
+            <result name="countSource">/jsp/customer/listSource.jsp</result>
         </action>
 <action name="linkman_*" class="linkManAction" method="{1}">
     <result name="toLinkAdd">/jsp/linkman/add.jsp</result>
@@ -36,12 +38,17 @@
     <result name="updateLinkMan" type="redirect">/linkman_findAll</result>
     <!--配置返回input如果上传文件超过限制会返回input-->
     <result name="input">/jsp/error.jsp</result>
+    <!--配置跳转到组合查询的页面-->
+    <result name="toSelectLinkMan">/jsp/select/linkman.jsp</result>
+    <result name="moreCondition">/jsp/linkman/list.jsp</result>
 </action>
 <!--配置拜访的action-->
         <action name="visit_*" class="visitAction" method="{1}">
             <result name="toAdd">/jsp/visit/add.jsp</result>
             <result name="addVisit">/jsp/success.jsp</result>
             <result name="toList">/jsp/visit/list.jsp</result>
+            <result name="toSelectVisitPage">/jsp/select/visit.jsp</result>
+            <result name="moreCondition">/jsp/visit/list.jsp</result>
         </action>
 </package>
 

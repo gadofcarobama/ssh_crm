@@ -32,4 +32,9 @@ public class LinkManService {
     public void updateLinkMan(LinkMan linkMan) {
         linkManDao.updateLinkMan(linkMan);
     }
+
+    public List<LinkMan> moreCondition(LinkMan linkMan) {
+        List<LinkMan> list = linkManDao.moreCondition(linkMan);
+        return list;
+    }
 }

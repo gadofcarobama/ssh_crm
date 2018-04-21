@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Customer;
+import entity.Dict;
 
 import java.util.List;
 
@@ -23,4 +24,10 @@ public interface CustomerDao extends BaseDao<Customer> {
     List<Customer> listcondition(String customerName);
 
     List<Customer> moreCondition(Customer customer);
+
+    List<Dict> finAllCustLevel();
+
+    List countLevel();
+
+    List countSource();
 }

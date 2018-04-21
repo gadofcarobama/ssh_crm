@@ -22,4 +22,9 @@ public class VisitService {
         List<Visit> list = visitDao.findAll();
         return list;
     }
+
+    public List<Visit> moreCondition(Visit visit) {
+        List<Visit> list = visitDao.moreCondition(visit);
+        return list;
+    }
 }

@@ -8,7 +8,8 @@
             <generator class="native"></generator>
         </id>
         <property name="custName" column="custName"></property>
-        <property name="custLevel" column="custLevel"></property>
+        <!--这里的属性在实体类中已经删除，所以，在这里也需要注释-->
+        <!--<property name="custLevel" column="custLevel"></property>-->
         <property name="custPhone" column="custPhone"></property>
         <property name="custMobile" column="custMobile"></property>
         <property name="custSource" column="custSource"></property>
@@ -22,5 +23,7 @@
             <key column="cvid"></key>
             <one-to-many class="entity.Visit"></one-to-many>
         </set>
+        <!--配置与数据字典对应的属性-->
+        <many-to-one name="dictCustLevel" class="entity.Dict" column="custLevel"></many-to-one>
     </class>
 </hibernate-mapping>

@@ -4,9 +4,11 @@ import Service.CustomerService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import entity.Customer;
+import entity.Dict;
 import entity.PageBean;
 import org.apache.struts2.ServletActionContext;
 
+import java.rmi.server.ServerCloneException;
 import java.util.List;
 
 public class CustomerAction extends ActionSupport implements ModelDriven {
@@ -29,6 +31,9 @@ public class CustomerAction extends ActionSupport implements ModelDriven {
         this.customerService = customerService;
     }
     public String toAdd(){
+        //调用方法从数据字典中查询所有的级别
+        List<Dict> list = customerService.finAllCustLevel();
+        ServletActionContext.getRequest().setAttribute("list",list);
         return "toAdd";
     }
     public String add(){
@@ -107,5 +112,17 @@ public class CustomerAction extends ActionSupport implements ModelDriven {
      ServletActionContext.getRequest().setAttribute("list",list);
      return "moreCondition";
   }
+  //客户级别统计
+    public String countLevel(){
+     List list = customerService.countLevel();
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "countLevel";
+    }
+    //客户来源统计
+    public String countSource(){
+        List list = customerService.countSource();
+        ServletActionContext.getRequest().setAttribute("list",list);
+        return "countSource";
+    }
 
 }

@@ -2,6 +2,7 @@ package Service;
 
 import dao.CustomerDao;
 import entity.Customer;
+import entity.Dict;
 import entity.PageBean;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -76,4 +77,18 @@ public class CustomerService {
 
         }
 
+    public List<Dict> finAllCustLevel() {
+        List<Dict> list = customerDao.finAllCustLevel();
+        return list;
+    }
+
+    public List countLevel() {
+       List list = customerDao.countLevel();
+       return list;
+    }
+
+    public List countSource() {
+       List list = customerDao.countSource();
+       return list;
+    }
 }

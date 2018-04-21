@@ -7,13 +7,23 @@ import java.util.Set;
 public class Customer  {
     private Integer cid;
     private String custName;
-    private String custLevel;
+//    private String custLevel;
     private String custSource;
     private String custPhone;
     private String custMobile;
     private Set<LinkMan> setLinkMan = new HashSet<LinkMan>();
     //表示拜访信息集合
     private Set<Visit> setVisit=new HashSet<Visit>();
+    //表示数据字典相关属性
+    private Dict dictCustLevel;
+
+    public Dict getDictCustLevel() {
+        return dictCustLevel;
+    }
+
+    public void setDictCustLevel(Dict dictCustLevel) {
+        this.dictCustLevel = dictCustLevel;
+    }
 
     public Set<Visit> getSetVisit() {
         return setVisit;
@@ -47,13 +57,13 @@ public class Customer  {
         this.custName = custName;
     }
 
-    public String getCustLevel() {
-        return custLevel;
-    }
-
-    public void setCustLevel(String custLevel) {
-        this.custLevel = custLevel;
-    }
+//    public String getCustLevel() {
+//        return custLevel;
+//    }
+//
+//    public void setCustLevel(String custLevel) {
+//        this.custLevel = custLevel;
+//    }
 
     public String getCustSource() {
         return custSource;

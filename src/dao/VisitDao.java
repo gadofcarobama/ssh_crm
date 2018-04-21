@@ -9,4 +9,6 @@ public interface VisitDao {
     void add(Visit visit);
 
     List<Visit> findAll();
+
+    List<Visit> moreCondition(Visit visit);
 }
